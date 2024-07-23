@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<script th:unless="${result > 0}">
+    alert("삭제 실패");
+    history.back();
+  </script>
+
+<script th:if="${result > 0}" th:inline="javascript">
+    var appId = [[${appId}]];
+    alert("삭제 성공");
+    if(appId === "null"){
+        location.href = "/user/mypage/myBoard";
+    } else {
+      location.href = "/board/list/" + [[${appId}]];
+    }
+  </script>
+
+</html>
